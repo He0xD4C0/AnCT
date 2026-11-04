@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-04T00:00:00Z",
+  "entries": [
+    {
+      "id": "alpine-prroot",
+      "name": "Alpine Linux",
+      "version": "3.24",
+      "backend": "PROOT_LINUX",
+      "architecture": "aarch64",
+      "ociReference": "alpine:3.24@sha256:e311ae748be7f56ae5cba304bc488f0786df68ee507513f654a5cc8597cffb42",
+      "sha256": "e311ae748be7f56ae5cba304bc488f0786df68ee507513f654a5cc8597cffb42",
+      "description": "Small, fast Linux environment for PRoot."
+    },
+    {
+      "id": "debian-prroot",
+      "name": "Debian",
+      "version": "13",
+      "backend": "PROOT_LINUX",
+      "architecture": "aarch64",
+      "ociReference": "debian:13@sha256:39f862f398f8ea1a2ffee9bbe02c649be6779244bd6a834c4f71155172f801f2",
+      "sha256": "39f862f398f8ea1a2ffee9bbe02c649be6779244bd6a834c4f71155172f801f2",
+      "description": "General purpose Debian Linux environment."
+    },
+    {
+      "id": "alpine-native",
+      "name": "Alpine Linux",
+      "version": "3.24.3",
+      "backend": "NATIVE_SYSTEM",
+      "architecture": "aarch64",
+      "sourceUrl": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/aarch64/alpine-minirootfs-3.24.3-aarch64.tar.gz",
+      "rootfsUrl": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/aarch64/alpine-minirootfs-3.24.3-aarch64.tar.gz",
+      "sha256": "4d3f80afaebd447c5591a63a73bde380a149fe8b2d85488cafabb2ff97551f50",
+      "description": "Official Alpine minirootfs for the native system-container backend."
+    }
+  ]
+}
+

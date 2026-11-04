@@ -1,0 +1,17 @@
+.gradle/
+.idea/
+**/build/
+local.properties
+*.iml
+*.apk
+*.aab
+.DS_Store
+.kotlin/
+.cxx/
+**/.cxx/
+.agents/
+docs/ACCEPTANCE.md
+work/
+.runtime-cache/
+outputs/
+

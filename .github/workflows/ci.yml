@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: android-actions/setup-android@v3
+      - name: Build and test non-generated targets
+        run: |
+          ./gradlew :core:test :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug
+
+  proot-distro:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pinned PRoot-Distro
+        uses: actions/checkout@v4
+        with:
+          repository: termux/proot-distro
+          ref: e1f5351e0b0b77d92876101a32179bae4e1ad97a
+          path: proot-distro
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run upstream tests
+        working-directory: proot-distro
+        run: |
+          python -m pip install pytest
+          python -m pytest
+
+  runtime-assets:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: android-actions/setup-android@v3
+      - name: Build pinned runtimes
+        run: scripts/build-runtimes.sh
+      - name: Build release candidate
+        run: ./gradlew :app:assembleRelease
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mobile-host-release-candidate
+          path: app/build/outputs/apk/release/*.apk

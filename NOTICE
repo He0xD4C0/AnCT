@@ -1,0 +1,16 @@
+AnCT includes or builds against the following projects:
+
+- Droidspaces, GPL-3.0-or-later:
+  https://github.com/ravindu644/Droidspaces-OSS
+- PRoot-Distro, GPL-3.0-only:
+  https://github.com/termux/proot-distro
+- PRoot, GPL-2.0-or-later:
+  https://github.com/termux/proot
+- Termux terminal-emulator and terminal-view, GPL-3.0-only with documented
+  Apache-2.0 portions:
+  https://github.com/termux/termux-app
+- libsu, Apache-2.0:
+  https://github.com/topjohnwu/libsu
+
+Exact source revisions are recorded in third_party/versions.lock. Generated
+runtime assets retain their upstream notices and license files.

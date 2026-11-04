@@ -1,0 +1,7 @@
+id=anct-droidspaces
+name=AnCT: System Container Runtime
+version=v0.1.0
+versionCode=100
+author=AnCT contributors
+description=Starts the pinned Droidspaces daemon and boot-enabled AnCT system containers.
+

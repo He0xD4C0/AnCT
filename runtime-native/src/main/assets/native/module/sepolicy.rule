@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Adapted from Droidspaces for the AnCT module.
+type droidspacesd domain
+type ksu domain
+type magisk domain
+type su domain
+type droidspacesd_exec exec_type
+permissive droidspacesd
+allow droidspacesd_exec droidspacesd_exec file { entrypoint execute execute_no_trans getattr map open read relabelfrom relabelto }
+allow droidspacesd_exec labeledfs filesystem associate
+allow init droidspacesd process { noatsecure rlimitinh siginh transition }
+allow init droidspacesd process2 nosuid_transition
+allow init droidspacesd_exec file { execute getattr map open read }
+allow init system_data_file file { execute getattr map open read }
+allow kernel droidspacesd fd use
+allow kernel system_data_file file { getattr open read write }
+allow kernel vold_data_file file { getattr open read write }
+allow magisk droidspacesd process { dyntransition noatsecure rlimitinh siginh transition }
+allow magisk droidspacesd process2 nosuid_transition
+allow magisk droidspacesd_exec file { entrypoint execute execute_no_trans getattr map open read relabelfrom relabelto }
+allow magisk system_data_file file entrypoint
+allow ksu droidspacesd process { dyntransition noatsecure rlimitinh siginh transition }
+allow ksu droidspacesd process2 nosuid_transition
+allow ksu droidspacesd_exec file { entrypoint execute execute_no_trans getattr map open read relabelfrom relabelto }
+allow ksu system_data_file file entrypoint
+allow su droidspacesd process { dyntransition noatsecure rlimitinh siginh transition }
+allow su droidspacesd process2 nosuid_transition
+allow su droidspacesd_exec file { entrypoint execute execute_no_trans getattr map open read relabelfrom relabelto }
+allow su system_data_file file entrypoint
+
